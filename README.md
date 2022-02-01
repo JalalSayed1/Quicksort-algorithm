@@ -1,2 +1,8 @@
 # Quicksort-algorithm
-Variant implementations of the Quicksort algorithm - Assessed Exercise 1 for my Algorithms &amp; Data Structure 2 course
+## About the project:
+- Variant implementations of the Quicksort algorithm. This was my Assessed Exercise 1 for Algorithms &amp; Data Structure 2 (COMPSCI2007) course.
+- 
+
+## What did I learn from this:
+-
+-
