@@ -1,5 +1,3 @@
-
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -138,8 +136,81 @@ public class QuickSort {
         
         return A;
     }
+    
+    /**
+     * 
+     * @param A = array of ints
+     * @param p = start index
+     * @param r = last index
+     * @return the median between p, q and r
+     */
+    private static int medianOfThreePartition(int[] A, int p, int r){
+    
+        int x = A[r];
+        int i = p-1;
+        int temp; // for swapping
 
+        // stop just before the last elt:
+        for (int j = p; j < r; j++) {
+            if (A[j] <= x) {
+                i += 1;
+                // perform the SWAP:
+                temp = A[i];
+                A[i] = A[j];
+                A[j] = temp;
+            }
+            // System.out.println(Arrays.toString(A));
+        }
 
+        // perform the last SWAP:
+        temp = A[i+1];
+        A[i+1] = A[r];
+        A[r] = temp;
+        //! System.out.println(Arrays.toString(A));
+
+        int pValue = A[p];
+        int qValue = A[i+1];
+        int rValue = A[r];
+
+        // a=p, b=q, c=r => median = max(min(a,b), min(max(a,b),c))
+        int median = Math.max(Math.min(pValue,qValue), Math.min(Math.max(pValue,qValue), rValue));
+        if (median == pValue){
+            return p;
+        } else if (median == qValue){
+            return i+1;
+        } else{
+            return r;
+        }
+    }
+
+    public static int[] medianQuickSort(int[] A, int p, int r){
+
+        int q; //! where do we get q from to calc the median?
+        if (p < r) {
+            q = medianOfThreePartition(A, p, r);
+
+            //! System.out.println("q is: " + A[q]);
+            //! System.out.println("less than q:");
+            //! for (int i = 0; i < A.length; i++) {
+            //!     if(A[i] < A[q]){
+            //!         System.out.print(A[i] + " ");
+            //!     }
+            //! }
+            //! System.out.println();
+            //! System.out.println("bigger than q:");
+            //! for (int i = 0; i < A.length; i++) {
+            //!     if(A[i] > A[q]){
+            //!         System.out.print(A[i]);
+            //!     }
+            //! }
+            
+            medianQuickSort(A, p, q-1);
+            medianQuickSort(A, q+1, r);
+        }
+        return A;
+    }
+
+    
 
 
 
@@ -171,9 +242,16 @@ public class QuickSort {
         // System.out.println();
 
         //* 1b:
-        int[] B = new int[] {0,7,5,2,4,4,1,3};
-        cutOffQuickSort(B, 0, B.length-1);
-        System.out.println("Cutoff Quicksort: " + equalArrays(B, sorted));
+        // int[] B = new int[] {0,7,5,2,4,4,1,3};
+        // cutOffQuickSort(B, 0, B.length-1);
+        // System.out.println("Cutoff Quicksort: " + equalArrays(B, sorted));
+        // System.out.println();
+
+        //* 1c:
+        int[] C = new int[] {0,7,5,2,4,6,4,1,3,7,0};
+        medianQuickSort(C, 0, C.length-1);
+        System.out.println(Arrays.toString(C));
+        System.out.println("Median-of-three Quicksort: " + equalArrays(C, sorted));
         System.out.println();
         
         
