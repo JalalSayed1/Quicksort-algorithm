@@ -33,7 +33,8 @@ public class InputSeqGen {
         long finishTime;
 
         int[] array = seqGen(seqLen);
-        Arrays.sort(array);
+        // Arrays.sort(array);
+        QuickSortAlg.quickSort(array, 0, array.length-1);
 
         startTime = System.currentTimeMillis();
         QuickSortAlg.quickSort(array, 0, array.length-1);
@@ -43,6 +44,6 @@ public class InputSeqGen {
 
     public static void main(String[] args) {
         // System.out.println(Arrays.toString(seqGen(10)));
-        quicksortQuadraticTime(13_680);
+        quicksortQuadraticTime(10000);
     }
 }

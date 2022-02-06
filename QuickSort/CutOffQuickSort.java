@@ -34,7 +34,7 @@ public class CutOffQuickSort {
     public static int[] cutOffQuickSort(int[] A, int p, int r){
 
         // array length less than 5 will be be sorted:
-        int k = 5;
+        int k = 500;
         // index of middle element which splits A into two sub arrays:
         int q;
 
