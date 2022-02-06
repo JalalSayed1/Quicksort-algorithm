@@ -16,7 +16,7 @@ public class ThreeWayQuickSort {
         int temp = A[eltIndex];
 
         // shift array to right:
-        // eltIndex is the last index so shift values from fromIndex to eltIndex
+        // eltIndex is the end index so will shift values from fromIndex to eltIndex
         for (int i =eltIndex-1; i >= fromIndex ; i-- ){
             A[i+1] = A[i];
         }
@@ -56,7 +56,7 @@ public class ThreeWayQuickSort {
         
         int firstIndex = p-1;
         int secondIndex = p-1; // start indexes at the same point
-        int[] indexes = new int[2]; //! does this get the updated values of first and second?
+        int[] indexes = new int[2];
 
         for (int j = p; j < r; j++) {
             if (A[j] < pivot) {
@@ -65,13 +65,6 @@ public class ThreeWayQuickSort {
                 putValueAndShiftArray(A, firstIndex, j);
                 secondIndex += 1;
 
-                
-                // for (int i = 0; i < indexes.length; i++) {
-                //     Swap.swap(A, secondIndex, secondIndex+1);
-                // }
-                // secondIndex += 1;
-                // // perform the SWAP:
-                // A = Swap.swap(A, firstIndex, j);
             } else if (A[j] == pivot){
                 secondIndex += 1; // only increment second index
                 putValueAndShiftArray(A, secondIndex, j);
@@ -83,8 +76,8 @@ public class ThreeWayQuickSort {
         putValueAndShiftArray(A, secondIndex, r);
         // System.out.println("Arrays after partitioning: " + Arrays.toString(A));
         
-        indexes[0] = firstIndex;        
-        indexes[1] = secondIndex;        
+        indexes[0] = firstIndex;
+        indexes[1] = secondIndex;
         // System.out.println("Returning from partitioning: " + Arrays.toString(indexes));
         return indexes;
     }
@@ -99,20 +92,12 @@ public class ThreeWayQuickSort {
     public static int[] threeWayQuickSort(int[] A, int p, int r){
 
         // index of middle element which splits A into two sub arrays:
-        int q;
-        int[] indexes = new int[2];
-
+        int[] indexes;
 
         if (p < r){
             indexes = threeWayPartitioning(A, p, r);
-
-            System.out.println(Arrays.toString(indexes));
-
-            int firstIndex = indexes[0];
-            int secondIndex = indexes[1];
-
-            threeWayQuickSort(A, p, firstIndex);
-            threeWayQuickSort(A, secondIndex+1, r);
+            threeWayQuickSort(A, p, indexes[0]);
+            threeWayQuickSort(A, indexes[1]+1, r);
         }
 
         return A;
@@ -123,8 +108,8 @@ public class ThreeWayQuickSort {
         int[] A = {0,1,7,3,5,2,3,8};
         // int fromIndex = 1;
         // int eltIndex = 3;
-        threeWayQuickSort(A, 0, A.length-1);
-        System.out.println(Arrays.toString(A));
+        threeWayQuickSort(B, 0, B.length-1);
+        System.out.println(Arrays.toString(B));
         
     }
 

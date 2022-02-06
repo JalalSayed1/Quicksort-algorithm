@@ -33,11 +33,11 @@ public class TestQuickSort {
         // System.out.println();
 
         //* 1c:
-        int[] C = new int[] {7,5,2,4,6,4,1,3,7,0};
-        MedianQuickSort.medianQuickSort(C, 0, C.length-1);
-        System.out.println(Arrays.toString(C));
-        System.out.println("Median-of-three Quicksort: " + equalArrays(C, sorted));
-        System.out.println();
+        // int[] C = new int[] {7,5,2,4,6,4,1,3,7,0};
+        // MedianQuickSort.medianQuickSort(C, 0, C.length-1);
+        // System.out.println(Arrays.toString(C));
+        // System.out.println("Median-of-three Quicksort: " + equalArrays(C, sorted));
+        // System.out.println();
         
         
     }

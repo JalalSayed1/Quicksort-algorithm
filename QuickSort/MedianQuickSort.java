@@ -25,16 +25,16 @@ public class MedianQuickSort {
     	 * pivot := A[high]
     	 * 
     	 */
-    	System.out.println(Arrays.toString(A));
+    	// System.out.println(Arrays.toString(A));
     	
     	int mid = (p+r)/2;
         int high = r;
         int low = p;
-    	System.out.println(mid);
+    	// System.out.println(mid);
     	int temp;
     	
     	if (A[mid] < A[low]) {
-    		temp = A[mid]; //! put the swapping in sep file then import
+    		temp = A[mid];
     		A[mid] = A[low];
     		A[low] = temp;
     	}
@@ -49,23 +49,32 @@ public class MedianQuickSort {
     		A[high] = temp;
     	}
     	
-    	System.out.println(Arrays.toString(A));
-    	System.out.println();
-//    	System.out.println("last elt is " + A[r]);
-    	return r;
+
+		int x = A[r];
+        int i = p-1;
+        // int temp; // for swapping
+
+        // stop just before the last elt:
+        for (int j = p; j < r; j++) {
+            if (A[j] <= x) {
+                i += 1;
+                // perform the SWAP:
+                temp = A[i];
+                A[i] = A[j];
+                A[j] = temp;
+            }
+            // System.out.println(Arrays.toString(A));
+        }
+
+        // put A[r] in the right place:
+        temp = A[i+1];
+        A[i+1] = A[r];
+        A[r] = temp;
+        return i+1;
+		// int q = Partition.partition(A, p, r);
+
+    	// return q;
     	
-    	
-//        int x = A[r];
-//        int i = p-1;
-//        int temp; // for swapping        
-		/*
-		 * int pValue = A[p]; int qValue = A[i+1]; int rValue = A[r];
-		 * 
-		 * // a=p, b=q, c=r => median = max(min(a,b), min(max(a,b),c)) int median =
-		 * Math.max(Math.min(pValue,qValue), Math.min(Math.max(pValue,qValue), rValue));
-		 * if (median == pValue){ return p; } else if (median == qValue){ return i+1; }
-		 * else{ return r; }
-		 */
         }
 
     public static int[] medianQuickSort(int[] A, int p, int r){
@@ -74,23 +83,13 @@ public class MedianQuickSort {
         if (p < r) {
             q = medianOfThreePartition(A, p, r);
 
-            //! System.out.println("q is: " + A[q]);
-            //! System.out.println("less than q:");
-            //! for (int i = 0; i < A.length; i++) {
-            //!     if(A[i] < A[q]){
-            //!         System.out.print(A[i] + " ");
-            //!     }
-            //! }
-            //! System.out.println();
-            //! System.out.println("bigger than q:");
-            //! for (int i = 0; i < A.length; i++) {
-            //!     if(A[i] > A[q]){
-            //!         System.out.print(A[i]);
-            //!     }
-            //! }
-            
-            medianQuickSort(A, p, q-1);
-            medianQuickSort(A, q+1, r);
+			if (q-p <= r-(q+1)){
+				medianQuickSort(A, p, q-1);
+				p = q+1;
+            } else {
+				medianQuickSort(A, q+1, r);
+                r=q;
+            }
         }
         return A;
     }
