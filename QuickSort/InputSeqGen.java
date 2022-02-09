@@ -38,11 +38,10 @@ public class InputSeqGen {
         startTime = System.currentTimeMillis();
         QuickSortAlg.quickSort(array, 0, array.length-1);
         finishTime = System.currentTimeMillis();
-        System.out.println("Quicksort: " + (finishTime-startTime) + "ms");
+        System.out.println("O(n^2) Quicksort: " + (finishTime-startTime) + "ms");
     }
 
-    // public static void main(String[] args) {
-    //     System.out.println(Arrays.toString(seqGen(10)));
-    //     quicksortQuadraticTime(10000);
-    // }
+    public static void main(String[] args) {
+        quicksortQuadraticTime(14000);
+    }
 }
