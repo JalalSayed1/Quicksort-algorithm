@@ -57,54 +57,53 @@ public class TimeSortingAlgorithms {
             //* quicksort:
             copyArray = arrayOfInts.clone();
             startTime = System.currentTimeMillis();
-            QuickSortAlg.quickSort(arrayOfInts, 0, arrayOfInts.length-1);
+            QuickSortAlg.quickSort(copyArray, 0, copyArray.length-1);
             finishTime = System.currentTimeMillis();
             System.out.println("Quicksort: " + (finishTime-startTime) + "ms");
             System.out.println();
             
             //* cutoff quicksort:
-            // copyArray = arrayOfInts.clone();
-            // startTime = System.currentTimeMillis();
-            // CutOffQuickSort.cutOffQuickSort(arrayOfInts, 0, arrayOfInts.length-1);
-            // finishTime = System.currentTimeMillis();
-            // System.out.println("CutoffQuicksort: " + (finishTime-startTime) + "ms");
-            // System.out.println();
+            copyArray = arrayOfInts.clone();
+            startTime = System.currentTimeMillis();
+            CutOffQuickSort.cutOffQuickSort(copyArray, 0, copyArray.length-1);
+            finishTime = System.currentTimeMillis();
+            System.out.println("CutoffQuicksort: " + (finishTime-startTime) + "ms");
+            System.out.println();
             
             
             //* median quicksort:
-            // copyArray = arrayOfInts.clone();
-            // startTime = System.currentTimeMillis();
-            // MedianQuickSort.medianQuickSort(arrayOfInts, 0, arrayOfInts.length-1);
-            // finishTime = System.currentTimeMillis();
-            // System.out.println("MedianQuicksort: " + (finishTime-startTime) + "ms");
-            // System.out.println();
+            copyArray = arrayOfInts.clone();
+            startTime = System.currentTimeMillis();
+            MedianQuickSort.medianQuickSort(copyArray, 0, copyArray.length-1);
+            finishTime = System.currentTimeMillis();
+            System.out.println("MedianQuicksort: " + (finishTime-startTime) + "ms");
+            System.out.println();
             
             
             //* three way quicksort:
-            // copyArray = arrayOfInts.clone();
-            // startTime = System.currentTimeMillis();
-            // ThreeWayQuickSort.threeWayQuickSort(arrayOfInts, 0, arrayOfInts.length-1);
-            // finishTime = System.currentTimeMillis();
-            // System.out.println("ThreeWayQuicksort: " + (finishTime-startTime) + "ms");
-            // System.out.println();
+            copyArray = arrayOfInts.clone();
+            startTime = System.currentTimeMillis();
+            ThreeWayQuickSort.threeWayQuickSort(copyArray, 0, copyArray.length-1);
+            finishTime = System.currentTimeMillis();
+            System.out.println("ThreeWayQuicksort: " + (finishTime-startTime) + "ms");
+            System.out.println();
 
             //* Insertion sort:
-            // copyArray = arrayOfInts.clone();
-            // startTime = System.currentTimeMillis();
-            // InsertionSort.insertionSort(arrayOfInts);
-            // finishTime = System.currentTimeMillis();
-            // System.out.println("Insertionsprt: " + (finishTime-startTime) + "ms");
-            // System.out.println();
+            copyArray = arrayOfInts.clone();
+            startTime = System.currentTimeMillis();
+            InsertionSort.insertionSort(copyArray);
+            finishTime = System.currentTimeMillis();
+            System.out.println("Insertionsprt: " + (finishTime-startTime) + "ms");
+            System.out.println();
 
             //* Merge sort:
-            // copyArray = arrayOfInts.clone();
-            // startTime = System.currentTimeMillis();
-            // MergeSort.mergeSort(copyArray, 0, ((copyArray.length-1)/2), copyArray.length-1);
-            // finishTime = System.currentTimeMillis();
-            // System.out.println("Merge sort: " + (finishTime-startTime) + "ms");
-            // System.out.println();
+            copyArray = arrayOfInts.clone();
+            startTime = System.currentTimeMillis();
+            MergeSort.mergeSort(copyArray, 0, ((copyArray.length-1)/2), copyArray.length-1);
+            finishTime = System.currentTimeMillis();
+            System.out.println("Merge sort: " + (finishTime-startTime) + "ms");
+            System.out.println();
 
-            
         }
     }
 
