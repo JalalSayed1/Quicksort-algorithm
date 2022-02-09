@@ -32,25 +32,9 @@ public class ThreeWayQuickSort {
      * @param A = array of ints
      * @param p = start index
      * @param r = last index
-     * @return
+     * @return sorted array A
      */
     private static int[] threeWayPartitioning(int[] A, int p, int r){
-        /**
-         * take pivot = last elt
-         * first index = end of left array with elts < pivot = start index-1
-         * second index = end of mid array with elts equals pivot = start index-1
-         * 
-         * loop through the array:
-         * if > pivot, do nothing
-         * if < pivot, put it at index first+1 then shift every thing else by 1 and increment first and second by 1
-         * if = pivot, put it at index sec+1 then shift every thing else by 1 and increment ONLY second by 1
-         * 
-         * result:
-         * first array from index 0 => first
-         * mid array from index first+1 => second
-         * last array from index second+1 => r (end of array)
-         * 
-         */
 
         int pivot = A[r];
         
@@ -74,11 +58,9 @@ public class ThreeWayQuickSort {
         // put pivot at secondIndex+1 (at the end of the mid array):
         secondIndex += 1;
         putValueAndShiftArray(A, secondIndex, r);
-        // System.out.println("Arrays after partitioning: " + Arrays.toString(A));
         
         indexes[0] = firstIndex;
         indexes[1] = secondIndex;
-        // System.out.println("Returning from partitioning: " + Arrays.toString(indexes));
         return indexes;
     }
 
@@ -103,14 +85,13 @@ public class ThreeWayQuickSort {
         return A;
     }
 
-    public static void main(String[] args) {
-        int[] B = {0,7,3,5,2,3};
-        int[] A = {0,1,7,3,5,2,3,8};
-        // int fromIndex = 1;
-        // int eltIndex = 3;
-        threeWayQuickSort(B, 0, B.length-1);
-        System.out.println(Arrays.toString(B));
+    // public static void main(String[] args) {
+    //     int[] A = {0,1,7,3,5,2,3,8};
+    //     int[] B = {0,7,3,5,2,3};
+
+    //     threeWayQuickSort(B, 0, B.length-1);
+    //     System.out.println(Arrays.toString(B));
         
-    }
+    // }
 
 }

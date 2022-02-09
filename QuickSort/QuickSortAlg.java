@@ -25,7 +25,6 @@ public class QuickSortAlg {
             quickSort(A, q+1, r);
         }
         
-        // System.out.println(Arrays.toString(A));
         return A;
     }
     

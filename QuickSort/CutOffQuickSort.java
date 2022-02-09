@@ -40,28 +40,12 @@ public class CutOffQuickSort {
 
         // if the range of the array to be sorted is less than that threshold, return sort with insertionSort() as it has better running time with small arrays:
         if ((r-p) <= k) {
-            //! System.out.println("Calling insertion sort now..");
             insertionSort(A);
-            
         }
         
         if (p < r && A.length > k) {
             q = Partition.partition(A, p, r);
 
-            //! System.out.println("q is: " + A[q]);
-            //! System.out.println("less than q:");
-            //! for (int i = 0; i < A.length; i++) {
-            //!     if(A[i] < A[q]){
-            //!         System.out.print(A[i] + " ");
-            //!     }
-            //! }
-            //! System.out.println();
-            //! System.out.println("bigger than q:");
-            //! for (int i = 0; i < A.length; i++) {
-            //!     if(A[i] > A[q]){
-            //!         System.out.print(A[i]);
-            //!     }
-            //! }
             if (q-p <= r-(q+1)){
                 cutOffQuickSort(A, p, q-1);
                 p = q+1;
@@ -69,28 +53,27 @@ public class CutOffQuickSort {
                 cutOffQuickSort(A, q+1, r);
                 r=q;
             }
-
         }
         
         return A;
     }
 
-    public static void main(String[] args) {
-        long startTime;
-        long finishTime;
-        int[] A = {0,1,7,3,5,2,3,8};
-        int[] B = InputSeqGen.seqGen(10_00000);
-        int[] C = InputSeqGen.seqGen(50_000);
+    // public static void main(String[] args) {
+    //     long startTime;
+    //     long finishTime;
+    //     int[] A = {0,1,7,3,5,2,3,8};
+    //     int[] B = InputSeqGen.seqGen(10_00000);
+    //     int[] C = InputSeqGen.seqGen(50_000);
 
-        startTime = System.currentTimeMillis();
-        cutOffQuickSort(B, 0, B.length-1);
-        finishTime = System.currentTimeMillis();
-        System.out.println("cutoff quicksort B: " + (finishTime-startTime) + "ms");
+    //     startTime = System.currentTimeMillis();
+    //     cutOffQuickSort(B, 0, B.length-1);
+    //     finishTime = System.currentTimeMillis();
+    //     System.out.println("cutoff quicksort B: " + (finishTime-startTime) + "ms");
 
-        startTime = System.currentTimeMillis();
-        cutOffQuickSort(C, 0, C.length-1);
-        finishTime = System.currentTimeMillis();
-        System.out.println("cutoff quicksort C: " + (finishTime-startTime) + "ms");
-        // System.out.println(Arrays.toString(B));
-    }
+    //     startTime = System.currentTimeMillis();
+    //     cutOffQuickSort(C, 0, C.length-1);
+    //     finishTime = System.currentTimeMillis();
+    //     System.out.println("cutoff quicksort C: " + (finishTime-startTime) + "ms");
+    //     System.out.println(Arrays.toString(B));
+    // }
 }

@@ -52,27 +52,27 @@ public class TimeSortingAlgorithms {
             // run sorting algs:
             arrayOfInts = readFile(fileName);
             
+            //! run every chunk of code individually:
+
             //* quicksort:
-            // copyArray = arrayOfInts.clone();
-            // startTime = System.currentTimeMillis();
-            // QuickSortAlg.quickSort(arrayOfInts, 0, arrayOfInts.length-1);
-            // finishTime = System.currentTimeMillis();
-            // System.out.println("Quicksort: " + (finishTime-startTime) + "ms");
-            // System.out.println();
+            copyArray = arrayOfInts.clone();
+            startTime = System.currentTimeMillis();
+            QuickSortAlg.quickSort(arrayOfInts, 0, arrayOfInts.length-1);
+            finishTime = System.currentTimeMillis();
+            System.out.println("Quicksort: " + (finishTime-startTime) + "ms");
+            System.out.println();
             
             //* cutoff quicksort:
-            copyArray = arrayOfInts.clone();
-            // arrayOfInts = readFile(fileName);
-            startTime = System.currentTimeMillis();
-            CutOffQuickSort.cutOffQuickSort(arrayOfInts, 0, arrayOfInts.length-1);
-            finishTime = System.currentTimeMillis();
-            System.out.println("CutoffQuicksort: " + (finishTime-startTime) + "ms");
-            System.out.println();
+            // copyArray = arrayOfInts.clone();
+            // startTime = System.currentTimeMillis();
+            // CutOffQuickSort.cutOffQuickSort(arrayOfInts, 0, arrayOfInts.length-1);
+            // finishTime = System.currentTimeMillis();
+            // System.out.println("CutoffQuicksort: " + (finishTime-startTime) + "ms");
+            // System.out.println();
             
             
             //* median quicksort:
             // copyArray = arrayOfInts.clone();
-            // // arrayOfInts = readFile(fileName);
             // startTime = System.currentTimeMillis();
             // MedianQuickSort.medianQuickSort(arrayOfInts, 0, arrayOfInts.length-1);
             // finishTime = System.currentTimeMillis();
@@ -80,9 +80,8 @@ public class TimeSortingAlgorithms {
             // System.out.println();
             
             
-            //* three way quicksort: WORKED
+            //* three way quicksort:
             // copyArray = arrayOfInts.clone();
-            // // arrayOfInts = readFile(fileName);
             // startTime = System.currentTimeMillis();
             // ThreeWayQuickSort.threeWayQuickSort(arrayOfInts, 0, arrayOfInts.length-1);
             // finishTime = System.currentTimeMillis();
@@ -91,7 +90,6 @@ public class TimeSortingAlgorithms {
 
             //* Insertion sort:
             // copyArray = arrayOfInts.clone();
-            // // arrayOfInts = readFile(fileName);
             // startTime = System.currentTimeMillis();
             // InsertionSort.insertionSort(arrayOfInts);
             // finishTime = System.currentTimeMillis();
@@ -112,7 +110,6 @@ public class TimeSortingAlgorithms {
 
     public static void main(String[] args) {
         timeSortingAlg();
-        // System.out.println(ThreeWayQuickSort.counter);
     }
 }
     
